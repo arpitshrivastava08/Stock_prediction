@@ -145,7 +145,7 @@ class FeatureEngineer:
         return df
 
    
-    # BOLLINGER BANDS
+    # BOLLINGER- BANDS
    
 
     def _add_bollinger_bands(self, df: pd.DataFrame) -> pd.DataFrame:
