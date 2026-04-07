@@ -35,10 +35,9 @@ class FeatureEngineer:
     def __init__(self):
         self.cfg = config.features
 
-    # ------------------------------------------------------------------
+    
     # PUBLIC API
-    # ------------------------------------------------------------------
-
+    
     def compute_all(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         Compute all technical indicators and append them as new columns.
@@ -68,9 +67,9 @@ class FeatureEngineer:
 
         return df
 
-    # ------------------------------------------------------------------
+    
     # RSI — Relative Strength Index
-    # ------------------------------------------------------------------
+    
 
     def _add_rsi(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -88,7 +87,7 @@ class FeatureEngineer:
         gain = delta.clip(lower=0)
         loss = -delta.clip(upper=0)
 
-        # Wilder smoothing (exponential moving average with alpha = 1/window)
+        
         avg_gain = gain.ewm(com=w - 1, min_periods=w).mean()
         avg_loss = loss.ewm(com=w - 1, min_periods=w).mean()
 
@@ -98,10 +97,9 @@ class FeatureEngineer:
         logger.debug(f"RSI({w}): range [{df['rsi'].min():.1f}, {df['rsi'].max():.1f}]")
         return df
 
-    # ------------------------------------------------------------------
+   
     # MACD — Moving Average Convergence Divergence
-    # ------------------------------------------------------------------
-
+    
     def _add_macd(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         MACD Line    = EMA(fast) - EMA(slow)
@@ -126,10 +124,9 @@ class FeatureEngineer:
         logger.debug(f"MACD({fast},{slow},{signal}) computed.")
         return df
 
-    # ------------------------------------------------------------------
+    
     # EMA — Exponential Moving Average
-    # ------------------------------------------------------------------
-
+    
     def _add_ema(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         EMA gives more weight to recent prices than SMA.
@@ -147,9 +144,9 @@ class FeatureEngineer:
         logger.debug(f"EMA({short}) and EMA({long_}) computed.")
         return df
 
-    # ------------------------------------------------------------------
+   
     # BOLLINGER BANDS
-    # ------------------------------------------------------------------
+   
 
     def _add_bollinger_bands(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -178,10 +175,9 @@ class FeatureEngineer:
         logger.debug(f"Bollinger Bands({w}, {k}) computed.")
         return df
 
-    # ------------------------------------------------------------------
+  
     # ATR — Average True Range
-    # ------------------------------------------------------------------
-
+   
     def _add_atr(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         True Range = max(
@@ -212,9 +208,9 @@ class FeatureEngineer:
         logger.debug(f"ATR({w}): mean={df['atr'].mean():.2f}")
         return df
 
-    # ------------------------------------------------------------------
+ 
     # VALIDATION
-    # ------------------------------------------------------------------
+   
 
     @staticmethod
     def _validate(df: pd.DataFrame) -> None:
@@ -226,9 +222,9 @@ class FeatureEngineer:
             raise ValueError(f"Insufficient data: {len(df)} rows (minimum 50 required)")
 
 
-# ─────────────────────────────────────────────
+
 # FEATURE NAMES — for RL state vector
-# ─────────────────────────────────────────────
+
 
 FEATURE_COLUMNS = [
     "Close",
@@ -245,10 +241,9 @@ FEATURE_COLUMNS = [
     "atr",
 ]
 
-STATE_DIM = len(FEATURE_COLUMNS) + 1  # +1 for sentiment_score
+STATE_DIM = len(FEATURE_COLUMNS) + 1  
 
 
-# Module-level convenience
 _fe = FeatureEngineer()
 
 def compute_features(df: pd.DataFrame) -> pd.DataFrame:
