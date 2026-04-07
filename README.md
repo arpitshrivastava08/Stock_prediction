@@ -1,2 +1,2 @@
 # Stock_prediction
-A ai model to predict the stock market 
+A model which predict that whether it is beneficial to hold sell or buy a stock using Reinforcement Learning
