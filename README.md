@@ -6,11 +6,11 @@
 
 ## 👥 Team
 
-- Arpit Kumar Shrivastava
-- Arihant Jain
-- Anurag Yadav
-- Anupam
-- Arpit Goyal
+- Arpit Kumar Shrivastava (20243054)
+- Arihant Jain (20243050)
+- Anurag Yadav (20243044)
+- Anupam  (20243042)
+- Arpit Goyal (20243053)
 
 ---
 
