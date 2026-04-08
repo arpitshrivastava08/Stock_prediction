@@ -6,13 +6,11 @@
 
 ## 👥 Team
 
-| Name | Role |
-|------|------|
-| **Arpit Kumar Shrivastava** | ML / RL Engineering |
-| **Arihant Jain** | Backend & API |
-| **Anurag Yadav** | Data Pipeline & Feature Engineering |
-| **Anupam** | Frontend & Dashboard |
-| **Arpit Goyal** | Model Training & Evaluation |
+- Arpit Kumar Shrivastava
+- Arihant Jain
+- Anurag Yadav
+- Anupam
+- Arpit Goyal
 
 ---
 
@@ -24,7 +22,8 @@
 ### Price Chart with EMA Indicators & Buy/Sell Signals
 ![Price Chart](screenshot_price_chart.png)
 
-
+### Technical Indicators — RSI, MACD & Latest Values
+![Technical Indicators](screenshot_technical_indicators.png)
 
 ---
 
@@ -94,7 +93,6 @@ Fetches OHLCV data from Yahoo Finance and manages a local CSV cache.
 | Behaviour | Detail |
 |-----------|--------|
 | Cache TTL | ~5 minutes — stale data triggers a fresh API call |
-| Long intraday | Yahoo does not serve 2y + 5m directly; the loader builds it from daily history + recent intraday and stitches them |
 | Fallback | If API fails, loads from the bundled CSV files in `src/data/` |
 | Key method | `StockDataLoader.load(ticker, period, interval, force_download)` |
 
