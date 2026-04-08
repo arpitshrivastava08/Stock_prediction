@@ -1,0 +1,23 @@
+{
+  "^NSEI": {
+    "last_bar_count": 29640,
+    "last_trained_at": "2026-04-08T17:38:24.931945",
+    "metrics": {
+      "ppo": {
+        "total_return": 0.0,
+        "sharpe_ratio": -3671020.5930133024,
+        "max_drawdown": 0.0
+      },
+      "dqn": {
+        "total_return": 0.0,
+        "sharpe_ratio": -3671020.5930133024,
+        "max_drawdown": 0.0
+      },
+      "a2c": {
+        "total_return": 0.0,
+        "sharpe_ratio": -3671020.5930133024,
+        "max_drawdown": 0.0
+      }
+    }
+  }
+}
