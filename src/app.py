@@ -44,9 +44,9 @@ except ImportError:
 logger = get_logger(__name__, log_file="logs/dashboard.log")
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+
 # PAGE CONFIG
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 st.set_page_config(
     page_title="Intelligent Stock Trading System",
@@ -55,9 +55,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ─────────────────────────────────────────────────────────────────────────────
-# CUSTOM CSS — same as before
-# ─────────────────────────────────────────────────────────────────────────────
+
+# CUSTOM CSS
 
 st.markdown("""
 <style>
@@ -132,9 +131,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+
 # SESSION STATE — persists values between reruns
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def init_session_state():
     """
@@ -142,20 +141,20 @@ def init_session_state():
     These values are updated automatically when Socket.IO pushes new data.
     """
     defaults = {
-        "live_price":       None,    # latest price from Socket.IO push
-        "live_ticker":      "^NSEI", # which ticker the live price is for
-        "last_updated":     None,    # datetime of last Socket.IO push
-        "live_feed_started": False,  # have we started the background feed yet
-        "update_count":     0,       # how many auto-updates have happened
+        "live_price":       None,    
+        "live_ticker":      "^NSEI", 
+        "last_updated":     None,    
+        "live_feed_started": False,  
+        "update_count":     0,       
     }
     for key, value in defaults.items():
         if key not in st.session_state:
             st.session_state[key] = value
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# LIVE FEED STARTUP — called once per app session
-# ─────────────────────────────────────────────────────────────────────────────
+
+# LIVE FEED STARTUP 
+
 
 def ensure_live_feed_running(ticker: str):
     """
@@ -182,9 +181,9 @@ def ensure_live_feed_running(ticker: str):
         logger.info("Live feed started from app.py")
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# SOCKET.IO CLIENT — listens for push events and triggers st.rerun()
-# ─────────────────────────────────────────────────────────────────────────────
+
+# SOCKET.IO CLIENT 
+
 
 def attach_socketio_listener():
     """
@@ -217,7 +216,7 @@ def attach_socketio_listener():
         st.session_state["last_updated"] = datetime.now().strftime("%H:%M:%S")
         st.session_state["update_count"] += 1
         logger.info(f"Socket.IO push received: {data.get('ticker')} @ {data.get('price')}")
-        st.rerun()   # ← this re-renders the dashboard with fresh data
+        st.rerun()   
 
     def on_heartbeat(data):
         """Server heartbeat — just confirms connection is alive."""
@@ -238,9 +237,9 @@ def attach_socketio_listener():
     )
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# CACHED COMPONENTS — same as before
-# ─────────────────────────────────────────────────────────────────────────────
+
+# CACHED COMPONENTS
+
 
 @st.cache_resource
 def get_components():
@@ -267,9 +266,8 @@ def get_sentiment(ticker: str) -> float:
     return c["sentiment"].get_score(ticker)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# SIDEBAR — same as before
-# ─────────────────────────────────────────────────────────────────────────────
+
+# SIDEBAR — 
 
 def render_sidebar():
     with st.sidebar:
@@ -305,7 +303,7 @@ def render_sidebar():
         st.markdown("---")
         run_analysis = st.button("🚀 Run Analysis", type="primary", use_container_width=True)
 
-        # ── NEW: Live feed status in sidebar ──────────────────────────
+        
         st.markdown("---")
         st.markdown("### 📡 Live Feed")
         if st.session_state.get("live_feed_started"):
@@ -337,9 +335,9 @@ def render_sidebar():
     return ticker, period, initial_balance, run_analysis, use_ensemble, show_all_agents
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# CHART BUILDERS — same as before
-# ─────────────────────────────────────────────────────────────────────────────
+
+# CHART BUILDERS 
+
 
 def build_candlestick_chart(df: pd.DataFrame, signals: Dict = None) -> go.Figure:
     fig = make_subplots(
@@ -423,9 +421,8 @@ def build_indicator_chart(df: pd.DataFrame) -> go.Figure:
     return fig
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# AGENT PREDICTIONS — same as before
-# ─────────────────────────────────────────────────────────────────────────────
+
+# AGENT PREDICTIONS
 
 def render_model_predictions(obs: np.ndarray, show_all: bool = True):
     st.markdown('<div class="section-header">🤖 Agent Predictions</div>', unsafe_allow_html=True)
@@ -469,20 +466,19 @@ def render_model_predictions(obs: np.ndarray, show_all: bool = True):
                 </div>""", unsafe_allow_html=True)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+
 # MAIN
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def main():
 
-    # ── Step 1: init session state ────────────────────────────────────
+    
     init_session_state()
 
-    # ── Step 2: attach Socket.IO listener FIRST (before any rendering)
-    # This sets up the WebSocket connection so pushes are received
+    
     attach_socketio_listener()
 
-    # ── Step 3: header with LIVE badge ───────────────────────────────
+   
     live_badge = '<span class="live-badge">● LIVE</span>'
     update_count = st.session_state.get("update_count", 0)
     if update_count > 0:
@@ -504,13 +500,13 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-    # ── Step 4: sidebar ───────────────────────────────────────────────
+   
     ticker, period, initial_balance, run_analysis, use_ensemble, show_all_agents = render_sidebar()
 
-    # ── Step 5: start live feed for selected ticker ───────────────────
+    
     ensure_live_feed_running(ticker)
 
-    # ── Step 6: load data ─────────────────────────────────────────────
+    
     with st.spinner("Loading market data..."):
         df = load_data(ticker, period)
 
@@ -518,9 +514,7 @@ def main():
         st.error(f"Could not load data for {ticker}. Check the symbol and try again.")
         return
 
-    # ── Step 7: override price with live value if available ──────────
-    # When Socket.IO pushes a new price, session_state["live_price"] is set.
-    # We use that as the "current price" instead of the cached df value.
+    
     live_price = st.session_state.get("live_price")
     if live_price and st.session_state.get("live_ticker") == ticker:
         current_price = live_price
@@ -538,7 +532,7 @@ def main():
     with st.spinner("Analyzing sentiment..."):
         sentiment_score = get_sentiment(ticker)
 
-    # ── TOP METRICS ───────────────────────────────────────────────────
+    # ── TOP METRICS
     st.markdown('<div class="section-header">📊 Market Overview</div>', unsafe_allow_html=True)
 
     m1, m2, m3, m4, m5 = st.columns(5)
@@ -596,7 +590,7 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ── ENSEMBLE ─────────────────────────────────────────────────────
+    # ── ENSEMBLE 
     if run_analysis:
         st.markdown('<div class="section-header">🧠 AI Decision Engine</div>', unsafe_allow_html=True)
         sentiment_scores = [sentiment_score] * len(df)
@@ -685,7 +679,7 @@ def main():
             except Exception:
                 st.info("Train models to see individual agent predictions.")
 
-    # ── CHARTS ────────────────────────────────────────────────────────
+    # ── CHARTS
     st.markdown('<div class="section-header">📉 Price Charts</div>', unsafe_allow_html=True)
     st.plotly_chart(build_candlestick_chart(df), use_container_width=True)
 
@@ -708,12 +702,12 @@ def main():
                     rows.append({"Indicator": label, "Value": f"{float(latest[col]):.2f}"})
             st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
-    # ── DATA TABLE ────────────────────────────────────────────────────
+    # ── DATA TABLE
     st.markdown('<div class="section-header">📁 Recent Data</div>', unsafe_allow_html=True)
     display_cols = [c for c in ["Open","High","Low","Close","Volume","rsi","macd","atr"] if c in df.columns]
     st.dataframe(df[display_cols].tail(20).round(2), use_container_width=True)
 
-    # ── FOOTER ────────────────────────────────────────────────────────
+    # ── FOOTER
     st.markdown("---")
     c1, c2, c3 = st.columns(3)
     with c1: st.caption(f"Data: {len(df)} bars | {ticker} | {period}")
