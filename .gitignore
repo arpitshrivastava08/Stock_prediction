@@ -1,0 +1,46 @@
+# -----------------------------
+# Project specific directories
+# -----------------------------
+# Ignore data files (e.g. downloaded historical stock data)
+/data/*
+!/data/.gitkeep
+
+# Ignore training logs and system logs
+/logs/*
+!/logs/.gitkeep
+
+# Ignore trained model artifacts and checkpoints
+/models/*
+!/models/.gitkeep
+
+# Ignore environment variables containing API keys/secrets
+.env
+.env.*
+
+# -----------------------------
+# Python / Virtual Environment
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# -----------------------------
+# IDEs and OS files
+# -----------------------------
+# VS Code
+.vscode/
+
+# Mac / Windows system files
+.DS_Store
+Thumbs.db
