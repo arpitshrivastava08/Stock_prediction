@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Intelligent Stock Trading System — Requirements
+# Python 3.10+ required
+# Install: pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Reinforcement Learning ────────────────────────────────────────────────────
+stable-baselines3>=2.0.0
+gymnasium>=0.29.0
+shimmy>=0.2.0                # gymnasium compatibility shim
+
+# ── Deep Learning ─────────────────────────────────────────────────────────────
+torch>=2.0.0
+torchvision>=0.15.0
+
+# ── NLP / Sentiment Analysis ──────────────────────────────────────────────────
+transformers>=4.35.0
+sentencepiece>=0.1.99
+tokenizers>=0.14.0
+
+# ── Stock Market Data ─────────────────────────────────────────────────────────
+yfinance>=0.2.18
+newsapi-python>=0.2.7
+
+# ── Technical Analysis ────────────────────────────────────────────────────────
+ta>=0.11.0
+pandas-ta>=0.3.14b0          # optional: additional indicators
+
+# ── Data / Numerics ───────────────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# ── Machine Learning Utilities ────────────────────────────────────────────────
+scikit-learn>=1.3.0
+
+# ── Dashboard / Visualization ─────────────────────────────────────────────────
+streamlit>=1.30.0
+plotly>=5.18.0
+matplotlib>=3.7.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0         # Load API keys from .env file
+tqdm>=4.66.0                 # Progress bars during training
+requests>=2.31.0

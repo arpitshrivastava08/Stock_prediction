@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import threading
 import numpy as np
 import pandas as pd
 from dataclasses import dataclass, asdict
@@ -207,3 +208,111 @@ class LivePredictor:
             self._cash_balance += proceeds
             if self._shares_held == 0:
                 self._entry_price = 0.0
+
+    def _load_history(self):
+        if not os.path.exists(self._log_file):
+            self._history = []
+            return
+
+        try:
+            with open(self._log_file, "r") as f:
+                raw = json.load(f)
+
+            if not isinstance(raw, list):
+                logger.warning("Prediction log is not a list. Resetting in-memory history.")
+                self._history = []
+                return
+
+            loaded: List[PredictionResult] = []
+            for item in raw:
+                if not isinstance(item, dict):
+                    continue
+                try:
+                    loaded.append(PredictionResult(**item))
+                except TypeError:
+                    # Skip malformed historical records to keep live service running.
+                    continue
+
+            self._history = loaded
+            logger.info(f"Loaded {len(self._history)} historical predictions")
+
+        except Exception as e:
+            logger.warning(f"Failed to load prediction history: {e}")
+            self._history = []
+
+    def _save_history(self):
+        try:
+            with open(self._log_file, "w") as f:
+                json.dump([asdict(r) for r in self._history], f, indent=2)
+        except Exception as e:
+            logger.warning(f"Failed to save prediction history: {e}")
+
+    def _make_dummy_df(self, n_rows: int = 300) -> pd.DataFrame:
+        prices = np.linspace(100.0, 120.0, n_rows)
+        idx = pd.date_range(end=pd.Timestamp.utcnow(), periods=n_rows, freq="5min")
+
+        raw = pd.DataFrame(
+            {
+                "Open": prices,
+                "High": prices * 1.002,
+                "Low": prices * 0.998,
+                "Close": prices,
+                "Volume": np.full(n_rows, 100000, dtype=np.int64),
+            },
+            index=idx,
+        )
+
+        engineered = self.fe.compute_all(raw)
+        if engineered.empty:
+            fallback = pd.DataFrame(
+                {col: np.zeros(n_rows, dtype=np.float32) for col in FEATURE_COLUMNS}
+            )
+            fallback["Close"] = prices
+            return fallback
+        return engineered
+
+    def get_latest(self) -> Optional[PredictionResult]:
+        if not self._history:
+            return None
+        return self._history[-1]
+
+    def get_history(self) -> List[PredictionResult]:
+        return list(self._history)
+
+    def get_history_df(self) -> pd.DataFrame:
+        if not self._history:
+            return pd.DataFrame()
+
+        rows = [asdict(r) for r in self._history]
+        df = pd.DataFrame(rows)
+        preferred = [
+            "timestamp",
+            "ticker",
+            "current_price",
+            "action_name",
+            "confidence",
+            "sentiment_score",
+            "risk_signal",
+            "risk_reason",
+        ]
+        cols = [c for c in preferred if c in df.columns]
+        return df[cols] if cols else df
+
+
+_predictor_instance: Optional[LivePredictor] = None
+_predictor_lock = threading.Lock()
+
+
+def get_predictor(load_models: bool = True) -> LivePredictor:
+    """Return a process-level singleton predictor for compatibility with app/retrain imports."""
+    global _predictor_instance
+
+    with _predictor_lock:
+        if _predictor_instance is None:
+            _predictor_instance = LivePredictor()
+            if load_models:
+                _predictor_instance.load_models()
+        elif load_models and not _predictor_instance._models_loaded:
+            _predictor_instance.load_models()
+
+    return _predictor_instance
