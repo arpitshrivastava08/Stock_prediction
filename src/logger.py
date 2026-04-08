@@ -1,7 +1,3 @@
-"""
-logger.py — Centralized logging setup for the trading system.
-"""
-
 import logging
 import os
 import sys

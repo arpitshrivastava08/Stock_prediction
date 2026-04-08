@@ -1,0 +1,6 @@
+{
+  "total_steps": 99935,
+  "total_episodes": 4,
+  "final_loss": 7.538042790855571e-08,
+  "final_mean_q": 0.0013897744275163859
+}
