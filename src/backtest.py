@@ -260,3 +260,4 @@ class Backtester:
             "best_day": float(daily_returns.max()) if len(daily_returns) > 0 else 0.0,
             "worst_day": float(daily_returns.min()) if len(daily_returns) > 0 else 0.0,
         }
+        
