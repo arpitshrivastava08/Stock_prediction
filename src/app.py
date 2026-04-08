@@ -1,4 +1,3 @@
-
 """
 app.py — Streamlit Trading Dashboard with Live Auto-Refresh
 
