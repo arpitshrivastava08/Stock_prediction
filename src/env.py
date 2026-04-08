@@ -1,20 +1,3 @@
-"""
-env.py — Custom Gymnasium Trading Environment (Markov Decision Process)
-
-MDP Specification:
-  State  (S): 13-dim vector = [price, rsi, macd, macd_signal, macd_hist,
-                                ema_12, ema_26, bb_high, bb_mid, bb_low,
-                                bb_width, atr, sentiment_score]
-  Action (A): Discrete(3) — 0=Hold, 1=Buy, 2=Sell
-  Reward (R): Portfolio value change - overtrading penalty + trend reward
-  Done   (D): All timesteps exhausted
-
-Design decisions:
-  - Single share at a time for simplicity / interpretability
-  - Transaction costs applied on every trade (0.1%)
-  - Overtrading penalty deducted when > N trades in episode
-  - Trend reward: bonus for holding a position in direction of EMA trend
-"""
 
 import numpy as np
 import pandas as pd
@@ -38,26 +21,7 @@ ACTION_NAMES = {HOLD: "HOLD", BUY: "BUY", SELL: "SELL"}
 
 
 class StockTradingEnv(gym.Env):
-    """
-    Gymnasium environment for single-stock RL trading.
-
-    Observation (state vector):
-      Normalized values of all technical indicators + sentiment score.
-      Shape: (STATE_DIM,)  — 13 dimensions as per SRS Section 3.3.2
-
-    Actions:
-      0 = HOLD  — Do nothing
-      1 = BUY   — Purchase 1 share (if sufficient balance)
-      2 = SELL  — Sell 1 share (if holding any)
-
-    Reward function:
-      r = Δportfolio_value
-        - transaction_cost  (if buy or sell)
-        - overtrading_penalty (if > max_trades in episode)
-        + trend_bonus (if holding position in direction of EMA trend)
-
-    Episode terminates when all timesteps in the DataFrame are exhausted.
-    """
+   
 
     metadata = {"render_modes": ["human", "ansi"]}
 
@@ -68,15 +32,7 @@ class StockTradingEnv(gym.Env):
         initial_balance: float = None,
         render_mode: Optional[str] = None,
     ):
-        """
-        Args:
-            df: DataFrame with OHLCV + computed indicators
-                Must contain all FEATURE_COLUMNS
-            sentiment_scores: List of sentiment values aligned with df rows.
-                              If None, all set to 0.0 (neutral).
-            initial_balance: Starting capital in currency units
-            render_mode: 'human' for console output
-        """
+      
         super().__init__()
 
         self.cfg = config.env
@@ -94,7 +50,6 @@ class StockTradingEnv(gym.Env):
                 f"must match df length {self.n_steps}"
             )
             self.sentiment_scores = sentiment_scores
-
         # ── State / Action Spaces ─────────────────────────────────────
         self.state_dim = len(FEATURE_COLUMNS) + 1  # features + sentiment
         self.action_space = spaces.Discrete(3)     # HOLD, BUY, SELL
