@@ -145,7 +145,7 @@ A custom **Gymnasium** environment that simulates a single-stock trading session
 | Initial balance | ₹10,000 |
 | Transaction cost | 0.1% per trade |
 | Overtrading penalty | 0.2% when max trades/episode exceeded |
-| Reward scaling | 1e-4 |
+| Trend Bonus | 1e-2 |
 
 ---
 
