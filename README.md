@@ -146,7 +146,7 @@ A custom **Gymnasium** environment that simulates a single-stock trading session
 | Transaction cost | 0.1% per trade |
 | Overtrading penalty | 0.2% when max trades/episode exceeded |
 | Trend Bonus | 1e-2 |
-
+| Reward | (newportfolio_val - old_portfolio_val)*1e-4 - overtrading penalty + trend bonus |
 ---
 
 ### RL Agents & Training (`src/train_dqn.py`, `src/train_ppo.py`, `src/train_all.py`)
@@ -174,7 +174,7 @@ Combines the four agents via a weighted-vote mechanism.
 |-----|-----|------|-----|
 | 0.30 | 0.20 | 0.20 | 0.30 |
 
-Weights are normalized at runtime to handle any agent that fails to load. After every sliding-window retrain, updated weights are persisted to `src/models/ensemble_weights.json`.
+Weights are normalized at runtime to handle any agent that fails to load. After every sliding-window retrain, updated weights are persisted to `src/models/ensemble_weights.json` using Sharpe Ratio ((Avg. Return - Risk free Rate)/standard deviation of return ). 
 
 ---
 
