@@ -1,0 +1,401 @@
+2026-04-08 07:41:41 | INFO     | __main__                  | ============================================================
+2026-04-08 07:41:41 | INFO     | __main__                  | INITIAL TRAINING MODE
+2026-04-08 07:41:41 | INFO     | __main__                  | ============================================================
+2026-04-08 07:41:41 | INFO     | __main__                  | Ticker: ^NSEI | Period: 2y | Interval: 5min | Timesteps: 100000
+2026-04-08 07:41:41 | INFO     | __main__                  | === DATA PREPARATION: ^NSEI ===
+2026-04-08 07:41:41 | INFO     | data_loader               | Downloading ^NSEI (2y, 5m)
+2026-04-08 07:41:48 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (2y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-08 07:41:48 | INFO     | data_loader               | Downloading ^NSEI (2y, 1d)
+2026-04-08 07:41:49 | INFO     | data_loader               | Saved ^NSEI data: 29640 rows -> data/IDX_NSEI_2y_5m.csv
+2026-04-08 07:41:49 | INFO     | features                  | Computing technical indicators...
+2026-04-08 07:41:49 | INFO     | features                  | Indicators computed. Dropped 22 NaN rows. Final shape: (29618, 16)
+2026-04-08 07:41:49 | INFO     | __main__                  | Features computed: (29618, 16)
+2026-04-08 07:41:49 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 07:41:49 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 07:41:49 | INFO     | __main__                  | Sentiment scores: mean=-0.000
+2026-04-08 07:41:49 | INFO     | __main__                  | Train: 23694 rows | Test: 5924 rows
+2026-04-08 07:41:49 | INFO     | env                       | StockTradingEnv initialized | Steps: 23694 | Initial balance: 10000 | State dim: 13
+2026-04-08 07:41:49 | INFO     | __main__                  | 
+----------------------------------------
+2026-04-08 07:41:49 | INFO     | __main__                  | Training DQN...
+2026-04-08 07:41:49 | INFO     | __main__                  | ----------------------------------------
+2026-04-08 07:41:49 | INFO     | train_dqn                 | Training DQN | timesteps=100000
+2026-04-08 07:43:28 | INFO     | train_dqn                 | DQN model saved to models/dqn_stock
+2026-04-08 07:43:28 | INFO     | __main__                  | ✓ DQN trained in 1.6 minutes
+2026-04-08 07:43:28 | INFO     | __main__                  | 
+----------------------------------------
+2026-04-08 07:43:28 | INFO     | __main__                  | Training DDQN...
+2026-04-08 07:43:28 | INFO     | __main__                  | ----------------------------------------
+2026-04-08 07:43:28 | INFO     | train_dqn                 | Training Improved Double DQN | timesteps=100000 | n_steps=3 | noisy_std=0.5
+2026-04-08 07:43:28 | INFO     | train_dqn                 | DoubleDQN (Improved) initialized on cpu | n_steps=3 | noisy_std=0.5 | PER alpha=0.6 beta_start=0.4
+2026-04-08 07:44:05 | INFO     | train_dqn                 | DDQN | Step 5000/100000 | Episodes: 0 | Loss: 0.00002 | Mean Q: 0.093 | LR: 3.00e-04 | PER beta: 0.405 | Buffer: 4998
+2026-04-08 07:45:01 | INFO     | train_dqn                 | DDQN | Step 10000/100000 | Episodes: 0 | Loss: 0.00000 | Mean Q: 0.069 | LR: 3.00e-04 | PER beta: 0.410 | Buffer: 9998
+2026-04-08 07:45:57 | INFO     | train_dqn                 | DDQN | Step 15000/100000 | Episodes: 0 | Loss: 0.00000 | Mean Q: 0.046 | LR: 3.00e-04 | PER beta: 0.415 | Buffer: 14998
+2026-04-08 07:46:37 | INFO     | train_dqn                 | DDQN | Step 20000/100000 | Episodes: 0 | Loss: 0.00000 | Mean Q: 0.031 | LR: 2.99e-04 | PER beta: 0.420 | Buffer: 19998
+2026-04-08 07:47:30 | INFO     | train_dqn                 | DDQN | Step 25000/100000 | Episodes: 1 | Loss: 0.00000 | Mean Q: 0.022 | LR: 2.99e-04 | PER beta: 0.425 | Buffer: 24996
+2026-04-08 07:48:20 | INFO     | train_dqn                 | DDQN | Step 30000/100000 | Episodes: 1 | Loss: 0.00000 | Mean Q: 0.016 | LR: 2.98e-04 | PER beta: 0.430 | Buffer: 29996
+2026-04-08 07:49:01 | INFO     | train_dqn                 | DDQN | Step 35000/100000 | Episodes: 1 | Loss: 0.00000 | Mean Q: 0.012 | LR: 2.98e-04 | PER beta: 0.435 | Buffer: 34996
+2026-04-08 07:49:46 | INFO     | train_dqn                 | DDQN | Step 40000/100000 | Episodes: 1 | Loss: 0.00000 | Mean Q: 0.010 | LR: 2.97e-04 | PER beta: 0.440 | Buffer: 39996
+2026-04-08 07:50:25 | INFO     | train_dqn                 | DDQN | Step 45000/100000 | Episodes: 1 | Loss: 0.00000 | Mean Q: 0.008 | LR: 2.96e-04 | PER beta: 0.445 | Buffer: 44996
+2026-04-08 07:51:03 | INFO     | train_dqn                 | DDQN | Step 50000/100000 | Episodes: 2 | Loss: 0.00000 | Mean Q: 0.007 | LR: 2.95e-04 | PER beta: 0.450 | Buffer: 49994
+2026-04-08 07:51:40 | INFO     | train_dqn                 | DDQN | Step 55000/100000 | Episodes: 2 | Loss: 0.00000 | Mean Q: 0.006 | LR: 2.94e-04 | PER beta: 0.455 | Buffer: 50000
+2026-04-08 07:52:34 | INFO     | train_dqn                 | DDQN | Step 60000/100000 | Episodes: 2 | Loss: 0.00000 | Mean Q: 0.005 | LR: 2.93e-04 | PER beta: 0.460 | Buffer: 50000
+2026-04-08 07:53:19 | INFO     | train_dqn                 | DDQN | Step 65000/100000 | Episodes: 2 | Loss: 0.00000 | Mean Q: 0.004 | LR: 2.92e-04 | PER beta: 0.465 | Buffer: 50000
+2026-04-08 07:53:59 | INFO     | train_dqn                 | DDQN | Step 70000/100000 | Episodes: 2 | Loss: 0.00000 | Mean Q: 0.003 | LR: 2.90e-04 | PER beta: 0.470 | Buffer: 50000
+2026-04-08 07:54:37 | INFO     | train_dqn                 | DDQN | Step 75000/100000 | Episodes: 3 | Loss: 0.00000 | Mean Q: 0.003 | LR: 2.89e-04 | PER beta: 0.475 | Buffer: 50000
+2026-04-08 07:55:17 | INFO     | train_dqn                 | DDQN | Step 80000/100000 | Episodes: 3 | Loss: 0.00000 | Mean Q: 0.002 | LR: 2.87e-04 | PER beta: 0.480 | Buffer: 50000
+2026-04-08 07:55:56 | INFO     | train_dqn                 | DDQN | Step 85000/100000 | Episodes: 3 | Loss: 0.00000 | Mean Q: 0.002 | LR: 2.86e-04 | PER beta: 0.485 | Buffer: 50000
+2026-04-08 07:56:35 | INFO     | train_dqn                 | DDQN | Step 90000/100000 | Episodes: 3 | Loss: 0.00000 | Mean Q: 0.002 | LR: 2.84e-04 | PER beta: 0.490 | Buffer: 50000
+2026-04-08 07:57:14 | INFO     | train_dqn                 | DDQN | Step 95000/100000 | Episodes: 4 | Loss: 0.00000 | Mean Q: 0.002 | LR: 2.82e-04 | PER beta: 0.495 | Buffer: 50000
+2026-04-08 07:57:52 | INFO     | train_dqn                 | DDQN | Step 100000/100000 | Episodes: 4 | Loss: 0.00000 | Mean Q: 0.001 | LR: 2.81e-04 | PER beta: 0.500 | Buffer: 50000
+2026-04-08 07:57:52 | INFO     | train_dqn                 | DDQN saved to models/ddqn_stock.pt
+2026-04-08 07:57:52 | INFO     | train_dqn                 | Improved Double DQN training complete. Saved to models/ddqn_stock.pt
+2026-04-08 07:57:52 | INFO     | train_dqn                 | Training stats saved to models/ddqn_stock_stats.json
+2026-04-08 07:57:52 | INFO     | __main__                  | ✓ DDQN trained in 14.4 minutes
+2026-04-08 07:57:52 | INFO     | __main__                  | 
+----------------------------------------
+2026-04-08 07:57:52 | INFO     | __main__                  | Training PPO...
+2026-04-08 07:57:52 | INFO     | __main__                  | ----------------------------------------
+2026-04-08 07:57:52 | INFO     | train_ppo                 | Training PPO for 100000 steps
+2026-04-08 07:59:57 | INFO     | train_ppo                 | PPO model saved at models/ppo_stock
+2026-04-08 07:59:57 | INFO     | __main__                  | ✓ PPO trained in 2.1 minutes
+2026-04-08 07:59:57 | INFO     | __main__                  | 
+----------------------------------------
+2026-04-08 07:59:57 | INFO     | __main__                  | Training A2C...
+2026-04-08 07:59:57 | INFO     | __main__                  | ----------------------------------------
+2026-04-08 07:59:57 | INFO     | train_ppo                 | Training A2C for 100000 steps
+2026-04-08 08:02:18 | INFO     | train_ppo                 | A2C model saved at models/a2c_stock
+2026-04-08 08:02:18 | INFO     | __main__                  | ✓ A2C trained in 2.4 minutes
+2026-04-08 08:02:18 | INFO     | __main__                  | 
+----------------------------------------
+2026-04-08 08:02:18 | INFO     | __main__                  | Running backtest on held-out test data...
+2026-04-08 08:02:18 | INFO     | __main__                  | === BACKTESTING ===
+2026-04-08 08:02:18 | INFO     | env                       | StockTradingEnv initialized | Steps: 5924 | Initial balance: 10000 | State dim: 13
+2026-04-08 08:02:18 | INFO     | backtest                  | Backtest [Buy&Hold] | Return: -7.30% | Sharpe: -3.26
+2026-04-08 08:02:21 | INFO     | backtest                  | Backtest [dqn] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:24 | INFO     | backtest                  | Backtest [ddqn] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:28 | INFO     | backtest                  | Backtest [ppo] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:31 | INFO     | backtest                  | Backtest [a2c] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:31 | INFO     | backtest                  | Backtest [Buy&Hold] | Return: -7.30% | Sharpe: -3.26
+2026-04-08 08:02:34 | INFO     | backtest                  | Backtest [dqn] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:37 | INFO     | backtest                  | Backtest [ddqn] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:41 | INFO     | backtest                  | Backtest [ppo] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:44 | INFO     | backtest                  | Backtest [a2c] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 08:02:44 | INFO     | __main__                  | 
+  Strategy Total Return Sharpe Ratio Max Drawdown Win Rate  Trades Final Value
+Buy & Hold       -7.30%       -3.258      -15.30%   47.32%       2     9270.07
+       dqn        0.00% -3671020.593        0.00%    0.00%    3813    10000.00
+      ddqn        0.00% -3671020.593        0.00%    0.00%    3137    10000.00
+       ppo        0.00% -3671020.593        0.00%    0.00%    3687    10000.00
+       a2c        0.00% -3671020.593        0.00%    0.00%    4476    10000.00
+2026-04-08 08:02:44 | INFO     | __main__                  | Backtest results saved.
+2026-04-08 08:02:45 | ERROR    | __main__                  | Backtest failed: cannot import name 'get_predictor' from 'predictor' (/workspaces/Stock_prediction/src/predictor.py)
+2026-04-08 08:02:45 | INFO     | __main__                  | 
+============================================================
+2026-04-08 08:02:45 | INFO     | __main__                  | INITIAL TRAINING COMPLETE
+2026-04-08 08:02:45 | INFO     | __main__                  | Total time: 21.1 minutes
+2026-04-08 08:02:45 | INFO     | __main__                  | Models trained: ['dqn', 'ddqn', 'ppo', 'a2c']
+2026-04-08 08:02:45 | INFO     | __main__                  | Models saved in: models/
+2026-04-08 08:02:45 | INFO     | __main__                  | ============================================================
+2026-04-08 08:02:45 | INFO     | __main__                  | 
+Next steps:
+2026-04-08 08:02:45 | INFO     | __main__                  |   1. Run the dashboard:  streamlit run src/app.py
+2026-04-08 08:02:45 | INFO     | __main__                  |   2. Retrain at day end: python src/train_all.py --retrain
+2026-04-08 17:16:44 | INFO     | __main__                  | ============================================================
+2026-04-08 17:16:44 | INFO     | __main__                  | INITIAL TRAINING MODE
+2026-04-08 17:16:44 | INFO     | __main__                  | ============================================================
+2026-04-08 17:16:44 | INFO     | __main__                  | Ticker: ^NSEI | Period: 2y | Interval: 5min | Timesteps: 100000
+2026-04-08 17:16:44 | INFO     | __main__                  | === DATA PREPARATION: ^NSEI ===
+2026-04-08 17:16:44 | INFO     | data_loader               | Downloading ^NSEI (2y, 5m)
+2026-04-08 17:16:53 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (2y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-08 17:16:53 | INFO     | data_loader               | Downloading ^NSEI (2y, 1d)
+2026-04-08 17:16:53 | INFO     | data_loader               | Saved ^NSEI data: 29640 rows -> data/IDX_NSEI_2y_5m.csv
+2026-04-08 17:16:53 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:16:53 | INFO     | features                  | Indicators computed. Dropped 22 NaN rows. Final shape: (29618, 16)
+2026-04-08 17:16:53 | INFO     | __main__                  | Features computed: (29618, 16)
+2026-04-08 17:16:53 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:16:53 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:16:53 | INFO     | __main__                  | Sentiment scores: mean=-0.000
+2026-04-08 17:16:53 | INFO     | __main__                  | Train: 23694 rows | Test: 5924 rows
+2026-04-08 17:16:53 | INFO     | env                       | StockTradingEnv initialized | Steps: 23694 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:16:53 | INFO     | __main__                  | 
+----------------------------------------
+2026-04-08 17:16:53 | INFO     | __main__                  | Training DQN...
+2026-04-08 17:16:53 | INFO     | __main__                  | ----------------------------------------
+2026-04-08 17:16:53 | INFO     | train_dqn                 | Training DQN | timesteps=100000
+2026-04-08 17:33:47 | INFO     | risk_manager              | RiskManager initialized | stop_loss=5% | max_drawdown=15% | max_position=10% | max_trades/day=5
+2026-04-08 17:33:47 | INFO     | risk_manager              | RiskManager reset | Initial portfolio: 10000.00
+2026-04-08 17:33:47 | INFO     | predictor                 | LivePredictor initialized | initial_balance=10000 | log_file=data/predictions_log.json
+2026-04-08 17:33:47 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:33:47 | INFO     | features                  | Indicators computed. Dropped 300 NaN rows. Final shape: (0, 16)
+2026-04-08 17:33:47 | INFO     | env                       | StockTradingEnv initialized | Steps: 300 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:33:52 | INFO     | ensemble                  | ✓ Loaded ppo
+2026-04-08 17:33:52 | INFO     | ensemble                  | ✓ Loaded a2c
+2026-04-08 17:33:52 | INFO     | train_dqn                 | Loading DQN from models/dqn_stock
+2026-04-08 17:33:52 | INFO     | ensemble                  | ✓ Loaded dqn
+2026-04-08 17:33:52 | INFO     | train_dqn                 | DoubleDQN (Improved) initialized on cpu | n_steps=3 | noisy_std=0.5 | PER alpha=0.6 beta_start=0.4
+2026-04-08 17:33:52 | INFO     | train_dqn                 | DDQN loaded from models/ddqn_stock.pt | steps=99935
+2026-04-08 17:33:52 | INFO     | ensemble                  | ✓ Loaded ddqn
+2026-04-08 17:33:52 | INFO     | ensemble                  | Loaded 4 models: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-08 17:33:52 | INFO     | ensemble                  | Ensemble initialized with 4 agents: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-08 17:33:52 | INFO     | ensemble                  | Normalized weights: {'ppo': 0.3, 'a2c': 0.3, 'dqn': 0.2, 'ddqn': 0.2}
+2026-04-08 17:33:52 | INFO     | predictor                 | Loaded 4 models for live prediction
+2026-04-08 17:33:52 | WARNING  | live_runner               | Socket.IO not available
+2026-04-08 17:33:52 | INFO     | live_runner               | Subscribed: ^NSEI
+2026-04-08 17:33:52 | INFO     | live_runner               | Refresh loop started
+2026-04-08 17:33:52 | INFO     | live_runner               | Refreshing: ^NSEI
+2026-04-08 17:33:52 | INFO     | data_loader               | Downloading ^NSEI (60d, 5m)
+2026-04-08 17:33:52 | INFO     | live_runner               | Scheduler started for ['^NSEI']
+2026-04-08 17:33:52 | INFO     | live_runner               | Live feed started
+2026-04-08 17:33:52 | INFO     | risk_manager              | RiskManager initialized | stop_loss=5% | max_drawdown=15% | max_position=10% | max_trades/day=5
+2026-04-08 17:33:52 | INFO     | data_loader               | Downloading ^NSEI (1y, 5m)
+2026-04-08 17:33:53 | INFO     | data_loader               | Saved ^NSEI data: 4329 rows -> data/IDX_NSEI_60d_5m.csv
+2026-04-08 17:33:53 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:33:53 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:33:53 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:33:53 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:33:53 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:33:53 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:33:53 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 70.00% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-08 17:34:01 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (1y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-08 17:34:01 | INFO     | data_loader               | Downloading ^NSEI (1y, 1d)
+2026-04-08 17:34:01 | INFO     | data_loader               | Saved ^NSEI data: 14760 rows -> data/IDX_NSEI_1y_5m.csv
+2026-04-08 17:34:01 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:34:01 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:34:01 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:34:01 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:36:46 | INFO     | data_loader               | Loading ^NSEI from cache (0.05h old)
+2026-04-08 17:36:46 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:36:46 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:37:01 | INFO     | retrain                   | ============================================================
+2026-04-08 17:37:01 | INFO     | retrain                   | SLIDING WINDOW RETRAIN: ^NSEI
+2026-04-08 17:37:01 | INFO     | retrain                   | Timesteps: 20000 | Agents: ['ppo', 'dqn', 'ddqn', 'a2c']
+2026-04-08 17:37:01 | INFO     | retrain                   | ============================================================
+2026-04-08 17:37:01 | INFO     | retrain                   | [Retrain] 16% — Loading market data...
+2026-04-08 17:37:01 | INFO     | data_loader               | Downloading ^NSEI (2y, 5m)
+2026-04-08 17:37:01 | INFO     | data_loader               | Loading ^NSEI from cache (0.05h old)
+2026-04-08 17:37:01 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:37:01 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:37:09 | INFO     | data_loader               | Loading ^NSEI from cache (0.05h old)
+2026-04-08 17:37:09 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:37:09 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:37:09 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (2y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-08 17:37:09 | INFO     | data_loader               | Downloading ^NSEI (2y, 1d)
+2026-04-08 17:37:11 | INFO     | data_loader               | Saved ^NSEI data: 29640 rows -> data/IDX_NSEI_2y_5m.csv
+2026-04-08 17:37:11 | INFO     | retrain                   | [^NSEI] 29640 new bars since last training (threshold=20) → retrain needed
+2026-04-08 17:37:11 | INFO     | retrain                   | [Retrain] 33% — Computing technical features...
+2026-04-08 17:37:11 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:37:11 | INFO     | features                  | Indicators computed. Dropped 22 NaN rows. Final shape: (29618, 16)
+2026-04-08 17:37:11 | INFO     | retrain                   | [Retrain] 50% — Applying sliding window...
+2026-04-08 17:37:11 | INFO     | retrain                   | Sliding window applied: using last 2000 bars
+2026-04-08 17:37:11 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:37:11 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:37:11 | INFO     | retrain                   | Train: 1600 bars | Test: 400 bars
+2026-04-08 17:37:11 | INFO     | env                       | StockTradingEnv initialized | Steps: 1600 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:37:11 | INFO     | retrain                   | [Retrain] 66% — Retraining 4 agents...
+2026-04-08 17:37:11 | INFO     | retrain                   |   Retraining ppo...
+2026-04-08 17:37:11 | INFO     | retrain                   |   Fine-tuning existing PPO model...
+2026-04-08 17:37:36 | INFO     | retrain                   |   ✓ ppo retrained in 25.0s
+2026-04-08 17:37:36 | INFO     | retrain                   |   Retraining dqn...
+2026-04-08 17:37:36 | INFO     | retrain                   |   Fine-tuning existing DQN model...
+2026-04-08 17:37:55 | INFO     | retrain                   |   ✓ dqn retrained in 19.0s
+2026-04-08 17:37:55 | INFO     | retrain                   |   Retraining ddqn...
+2026-04-08 17:37:55 | INFO     | retrain                   |   Fine-tuning existing DDQN model...
+2026-04-08 17:37:55 | INFO     | train_dqn                 | DoubleDQN (Improved) initialized on cpu | n_steps=3 | noisy_std=0.5 | PER alpha=0.6 beta_start=0.4
+2026-04-08 17:37:55 | INFO     | train_dqn                 | DDQN loaded from models/ddqn_stock.pt | steps=99935
+2026-04-08 17:37:58 | ERROR    | retrain                   |   ✗ ddqn retraining failed: 'int' object has no attribute 'state'
+2026-04-08 17:37:58 | INFO     | retrain                   |   Retraining a2c...
+2026-04-08 17:37:58 | INFO     | retrain                   |   Fine-tuning existing A2C model...
+2026-04-08 17:38:24 | INFO     | retrain                   |   ✓ a2c retrained in 25.9s
+2026-04-08 17:38:24 | INFO     | retrain                   | [Retrain] 83% — Running quick backtest...
+2026-04-08 17:38:24 | INFO     | env                       | StockTradingEnv initialized | Steps: 400 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:38:24 | INFO     | backtest                  | Backtest [ppo] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 17:38:24 | INFO     | retrain                   |   [ppo] Return=0.00% | Sharpe=-3671020.593
+2026-04-08 17:38:24 | INFO     | backtest                  | Backtest [dqn] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 17:38:24 | INFO     | retrain                   |   [dqn] Return=0.00% | Sharpe=-3671020.593
+2026-04-08 17:38:24 | INFO     | backtest                  | Backtest [a2c] | Return: 0.00% | Sharpe: -3671020.59 | MaxDD: 0.00%
+2026-04-08 17:38:24 | INFO     | retrain                   |   [a2c] Return=0.00% | Sharpe=-3671020.593
+2026-04-08 17:38:24 | INFO     | retrain                   | [Retrain] 100% — Updating ensemble weights...
+2026-04-08 17:38:24 | INFO     | ensemble                  | Ensemble initialized with 3 agents: ['ppo', 'dqn', 'a2c']
+2026-04-08 17:38:24 | INFO     | ensemble                  | Normalized weights: {'ppo': 0.37499999999999994, 'dqn': 0.25, 'a2c': 0.37499999999999994}
+2026-04-08 17:38:24 | INFO     | ensemble                  | Ensemble weights updated from Sharpe ratios: {'ppo': 0.33333333333333337, 'dqn': 0.33333333333333337, 'a2c': 0.33333333333333337}
+2026-04-08 17:38:24 | INFO     | retrain                   | Ensemble weights updated: {'ppo': 0.33333333333333337, 'dqn': 0.33333333333333337, 'a2c': 0.33333333333333337}
+2026-04-08 17:38:24 | INFO     | retrain                   | RETRAIN COMPLETE | elapsed=83.3s | agents=['ppo', 'dqn', 'a2c']
+2026-04-08 17:38:24 | INFO     | predictor                 | Reloading models after retraining...
+2026-04-08 17:38:24 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:38:24 | INFO     | features                  | Indicators computed. Dropped 300 NaN rows. Final shape: (0, 16)
+2026-04-08 17:38:24 | INFO     | env                       | StockTradingEnv initialized | Steps: 300 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:38:24 | INFO     | ensemble                  | ✓ Loaded ppo
+2026-04-08 17:38:24 | INFO     | ensemble                  | ✓ Loaded a2c
+2026-04-08 17:38:24 | INFO     | train_dqn                 | Loading DQN from models/dqn_stock
+2026-04-08 17:38:24 | INFO     | ensemble                  | ✓ Loaded dqn
+2026-04-08 17:38:25 | INFO     | train_dqn                 | DoubleDQN (Improved) initialized on cpu | n_steps=3 | noisy_std=0.5 | PER alpha=0.6 beta_start=0.4
+2026-04-08 17:38:25 | INFO     | train_dqn                 | DDQN loaded from models/ddqn_stock.pt | steps=99935
+2026-04-08 17:38:25 | INFO     | ensemble                  | ✓ Loaded ddqn
+2026-04-08 17:38:25 | INFO     | ensemble                  | Loaded 4 models: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-08 17:38:25 | INFO     | ensemble                  | Loaded persisted ensemble weights from models/ensemble_weights.json
+2026-04-08 17:38:25 | INFO     | ensemble                  | Ensemble initialized with 4 agents: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-08 17:38:25 | INFO     | ensemble                  | Normalized weights: {'ppo': 0.33333333333333337, 'a2c': 0.33333333333333337, 'dqn': 0.33333333333333337}
+2026-04-08 17:38:25 | INFO     | predictor                 | Loaded 4 models for live prediction
+2026-04-08 17:38:53 | INFO     | live_runner               | Refreshing: ^NSEI
+2026-04-08 17:38:53 | INFO     | data_loader               | Downloading ^NSEI (60d, 5m)
+2026-04-08 17:38:54 | INFO     | data_loader               | Saved ^NSEI data: 4329 rows -> data/IDX_NSEI_60d_5m.csv
+2026-04-08 17:38:54 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:38:54 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:38:54 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:38:54 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:38:54 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:38:54 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:38:54 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 66.67% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-08 17:41:23 | WARNING  | live_runner               | Socket.IO not available
+2026-04-08 17:41:23 | INFO     | live_runner               | Refresh loop started
+2026-04-08 17:41:23 | INFO     | live_runner               | Scheduler started for ['^NSEI']
+2026-04-08 17:41:23 | INFO     | live_runner               | Refreshing: ^NSEI
+2026-04-08 17:41:23 | INFO     | live_runner               | Live feed started
+2026-04-08 17:41:23 | INFO     | data_loader               | Downloading ^NSEI (60d, 5m)
+2026-04-08 17:41:23 | INFO     | data_loader               | Downloading ^NSEI (1y, 5m)
+2026-04-08 17:41:23 | INFO     | data_loader               | Saved ^NSEI data: 4329 rows -> data/IDX_NSEI_60d_5m.csv
+2026-04-08 17:41:23 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:41:23 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:41:23 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:41:23 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:41:23 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:41:23 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:41:23 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 66.67% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-08 17:41:23 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:41:23 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:41:23 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:41:23 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:41:23 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:41:23 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:41:23 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 66.67% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-08 17:41:31 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (1y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-08 17:41:31 | INFO     | data_loader               | Downloading ^NSEI (1y, 1d)
+2026-04-08 17:41:31 | INFO     | data_loader               | Saved ^NSEI data: 14760 rows -> data/IDX_NSEI_1y_5m.csv
+2026-04-08 17:41:31 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:41:31 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:45:12 | INFO     | risk_manager              | RiskManager initialized | stop_loss=5% | max_drawdown=15% | max_position=10% | max_trades/day=5
+2026-04-08 17:45:12 | INFO     | risk_manager              | RiskManager reset | Initial portfolio: 10000.00
+2026-04-08 17:45:12 | INFO     | predictor                 | Loaded 4 historical predictions
+2026-04-08 17:45:12 | INFO     | predictor                 | LivePredictor initialized | initial_balance=10000 | log_file=data/predictions_log.json
+2026-04-08 17:45:12 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:45:12 | INFO     | features                  | Indicators computed. Dropped 300 NaN rows. Final shape: (0, 16)
+2026-04-08 17:45:12 | INFO     | env                       | StockTradingEnv initialized | Steps: 300 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:45:17 | INFO     | ensemble                  | ✓ Loaded ppo
+2026-04-08 17:45:17 | INFO     | ensemble                  | ✓ Loaded a2c
+2026-04-08 17:45:17 | INFO     | train_dqn                 | Loading DQN from models/dqn_stock
+2026-04-08 17:45:17 | INFO     | ensemble                  | ✓ Loaded dqn
+2026-04-08 17:45:17 | INFO     | train_dqn                 | DoubleDQN (Improved) initialized on cpu | n_steps=3 | noisy_std=0.5 | PER alpha=0.6 beta_start=0.4
+2026-04-08 17:45:17 | INFO     | train_dqn                 | DDQN loaded from models/ddqn_stock.pt | steps=99935
+2026-04-08 17:45:17 | INFO     | ensemble                  | ✓ Loaded ddqn
+2026-04-08 17:45:17 | INFO     | ensemble                  | Loaded 4 models: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-08 17:45:17 | INFO     | ensemble                  | Loaded persisted ensemble weights from models/ensemble_weights.json
+2026-04-08 17:45:17 | INFO     | ensemble                  | Ensemble initialized with 4 agents: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-08 17:45:17 | INFO     | ensemble                  | Normalized weights: {'ppo': 0.33333333333333337, 'a2c': 0.33333333333333337, 'dqn': 0.33333333333333337}
+2026-04-08 17:45:17 | INFO     | predictor                 | Loaded 4 models for live prediction
+2026-04-08 17:45:17 | WARNING  | live_runner               | Socket.IO not available
+2026-04-08 17:45:17 | INFO     | live_runner               | Subscribed: ^NSEI
+2026-04-08 17:45:17 | INFO     | live_runner               | Refresh loop started
+2026-04-08 17:45:17 | INFO     | live_runner               | Refreshing: ^NSEI
+2026-04-08 17:45:17 | INFO     | data_loader               | Downloading ^NSEI (60d, 5m)
+2026-04-08 17:45:17 | INFO     | live_runner               | Scheduler started for ['^NSEI']
+2026-04-08 17:45:17 | INFO     | live_runner               | Live feed started
+2026-04-08 17:45:17 | INFO     | risk_manager              | RiskManager initialized | stop_loss=5% | max_drawdown=15% | max_position=10% | max_trades/day=5
+2026-04-08 17:45:17 | INFO     | data_loader               | Loading ^NSEI from cache (0.06h old)
+2026-04-08 17:45:17 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:45:17 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:45:17 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:45:17 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:45:18 | INFO     | data_loader               | Saved ^NSEI data: 4329 rows -> data/IDX_NSEI_60d_5m.csv
+2026-04-08 17:45:18 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:45:18 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:45:18 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:45:18 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:45:18 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:45:18 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:45:18 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 66.67% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-08 17:46:17 | INFO     | data_loader               | Loading ^NSEI from cache (0.08h old)
+2026-04-08 17:46:17 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:46:17 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:46:50 | INFO     | data_loader               | Downloading ^NSEI (1y, 5m)
+2026-04-08 17:46:58 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (1y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-08 17:46:58 | INFO     | data_loader               | Downloading ^NSEI (1y, 1d)
+2026-04-08 17:46:58 | INFO     | data_loader               | Saved ^NSEI data: 14760 rows -> data/IDX_NSEI_1y_5m.csv
+2026-04-08 17:46:58 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:46:58 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:47:17 | INFO     | data_loader               | Loading ^NSEI from cache (0.01h old)
+2026-04-08 17:47:17 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:47:17 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:48:17 | INFO     | data_loader               | Loading ^NSEI from cache (0.02h old)
+2026-04-08 17:48:17 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:48:17 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:49:08 | WARNING  | live_runner               | Socket.IO not available
+2026-04-08 17:49:08 | INFO     | live_runner               | Refresh loop started
+2026-04-08 17:49:08 | INFO     | live_runner               | Scheduler started for ['^NSEI']
+2026-04-08 17:49:08 | INFO     | live_runner               | Refreshing: ^NSEI
+2026-04-08 17:49:08 | INFO     | live_runner               | Live feed started
+2026-04-08 17:49:08 | INFO     | data_loader               | Downloading ^NSEI (60d, 5m)
+2026-04-08 17:49:08 | INFO     | data_loader               | Loading ^NSEI from cache (0.04h old)
+2026-04-08 17:49:08 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:49:08 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (14741, 16)
+2026-04-08 17:49:09 | INFO     | data_loader               | Saved ^NSEI data: 4329 rows -> data/IDX_NSEI_60d_5m.csv
+2026-04-08 17:49:09 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:49:09 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:49:09 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:49:09 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:49:09 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:49:09 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:49:09 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 66.67% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-08 17:49:09 | INFO     | features                  | Computing technical indicators...
+2026-04-08 17:49:09 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-08 17:49:09 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-08 17:49:09 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-08 17:49:09 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-08 17:49:09 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.1%
+2026-04-08 17:49:10 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24010.60 | Confidence: 66.67% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-13 00:02:27 | INFO     | risk_manager              | RiskManager initialized | stop_loss=5% | max_drawdown=15% | max_position=10% | max_trades/day=5
+2026-04-13 00:02:27 | INFO     | risk_manager              | RiskManager reset | Initial portfolio: 10000.00
+2026-04-13 00:02:27 | INFO     | predictor                 | Loaded 7 historical predictions
+2026-04-13 00:02:27 | INFO     | predictor                 | LivePredictor initialized | initial_balance=10000 | log_file=data/predictions_log.json
+2026-04-13 00:02:27 | INFO     | features                  | Computing technical indicators...
+2026-04-13 00:02:27 | INFO     | features                  | Indicators computed. Dropped 300 NaN rows. Final shape: (0, 16)
+2026-04-13 00:02:27 | INFO     | env                       | StockTradingEnv initialized | Steps: 300 | Initial balance: 10000 | State dim: 13
+2026-04-13 00:02:29 | INFO     | ensemble                  | ✓ Loaded ppo
+2026-04-13 00:02:29 | INFO     | ensemble                  | ✓ Loaded a2c
+2026-04-13 00:02:29 | INFO     | train_dqn                 | Loading DQN from models/dqn_stock
+2026-04-13 00:02:29 | INFO     | ensemble                  | ✓ Loaded dqn
+2026-04-13 00:02:29 | INFO     | train_dqn                 | DoubleDQN (Improved) initialized on cpu | n_steps=3 | noisy_std=0.5 | PER alpha=0.6 beta_start=0.4
+2026-04-13 00:02:29 | INFO     | train_dqn                 | DDQN loaded from models/ddqn_stock.pt | steps=99935
+2026-04-13 00:02:29 | INFO     | ensemble                  | ✓ Loaded ddqn
+2026-04-13 00:02:29 | INFO     | ensemble                  | Loaded 4 models: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-13 00:02:29 | INFO     | ensemble                  | Loaded persisted ensemble weights from models/ensemble_weights.json
+2026-04-13 00:02:29 | INFO     | ensemble                  | Ensemble initialized with 4 agents: ['ppo', 'a2c', 'dqn', 'ddqn']
+2026-04-13 00:02:29 | INFO     | ensemble                  | Normalized weights: {'ppo': 0.25, 'a2c': 0.25, 'dqn': 0.25, 'ddqn': 0.25}
+2026-04-13 00:02:29 | INFO     | predictor                 | Loaded 4 models for live prediction
+2026-04-13 00:02:29 | WARNING  | live_runner               | Socket.IO not available
+2026-04-13 00:02:29 | INFO     | live_runner               | Subscribed: ^NSEI
+2026-04-13 00:02:29 | INFO     | live_runner               | Refresh loop started
+2026-04-13 00:02:29 | INFO     | live_runner               | Scheduler started for ['^NSEI']
+2026-04-13 00:02:29 | INFO     | live_runner               | Refreshing: ^NSEI
+2026-04-13 00:02:29 | INFO     | live_runner               | Live feed started
+2026-04-13 00:02:29 | INFO     | data_loader               | Downloading ^NSEI (60d, 5m)
+2026-04-13 00:02:29 | INFO     | risk_manager              | RiskManager initialized | stop_loss=5% | max_drawdown=15% | max_position=10% | max_trades/day=5
+2026-04-13 00:02:29 | INFO     | data_loader               | Downloading ^NSEI (1y, 5m)
+2026-04-13 00:02:30 | INFO     | data_loader               | Saved ^NSEI data: 4329 rows -> data/IDX_NSEI_60d_5m.csv
+2026-04-13 00:02:30 | INFO     | features                  | Computing technical indicators...
+2026-04-13 00:02:30 | INFO     | features                  | Indicators computed. Dropped 19 NaN rows. Final shape: (4310, 16)
+2026-04-13 00:02:30 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-13 00:02:30 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-13 00:02:30 | INFO     | env                       | StockTradingEnv initialized | Steps: 4310 | Initial balance: 10000 | State dim: 13
+2026-04-13 00:02:30 | WARNING  | risk_manager              | RISK OVERRIDE: BUY → HOLD | Position limit exceeded: 240.5%
+2026-04-13 00:02:30 | INFO     | predictor                 | [^NSEI] PREDICTION → HOLD | Price: 24051.80 | Confidence: 75.00% | Sentiment: +0.000 | Risk: POSITION_CAP
+2026-04-13 00:02:40 | WARNING  | data_loader               | Direct intraday download unavailable for ^NSEI (1y, 5m). Building long intraday dataset from daily history + recent intraday.
+2026-04-13 00:02:40 | INFO     | data_loader               | Downloading ^NSEI (1y, 1d)
+2026-04-13 00:02:41 | INFO     | data_loader               | Saved ^NSEI data: 14760 rows -> data/IDX_NSEI_1y_5m.csv
+2026-04-13 00:02:41 | INFO     | features                  | Computing technical indicators...
+2026-04-13 00:02:41 | INFO     | features                  | Indicators computed. Dropped 22 NaN rows. Final shape: (14738, 16)
+2026-04-13 00:02:41 | WARNING  | sentiment                 | [^NSEI] No real news found.
+2026-04-13 00:02:41 | WARNING  | sentiment                 | [^NSEI] No news found. Returning neutral score 0.0
+2026-04-13 00:03:41 | INFO     | data_loader               | Loading ^NSEI from cache (0.02h old)
+2026-04-13 00:03:41 | INFO     | features                  | Computing technical indicators...
+2026-04-13 00:03:41 | INFO     | features                  | Indicators computed. Dropped 22 NaN rows. Final shape: (14738, 16)
