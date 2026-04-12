@@ -1,0 +1,378 @@
+[
+  {
+    "timestamp": "2026-04-08T17:33:53.940918",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.7,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.3
+      },
+      "a2c": {
+        "action_name": "HOLD",
+        "weight": 0.3
+      },
+      "dqn": {
+        "action_name": "BUY",
+        "weight": 0.2
+      },
+      "ddqn": {
+        "action_name": "BUY",
+        "weight": 0.2
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3,
+      "BUY": 0.7,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-08T17:38:54.413374",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.6666666666666667,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.33333333333333337
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3333,
+      "BUY": 0.6667,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-08T17:41:23.705425",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.6666666666666667,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.33333333333333337
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3333,
+      "BUY": 0.6667,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-08T17:41:23.733484",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.6666666666666667,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.33333333333333337
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3333,
+      "BUY": 0.6667,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-08T17:45:18.342453",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.6666666666666667,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.33333333333333337
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3333,
+      "BUY": 0.6667,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-08T17:49:09.712755",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.6666666666666667,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.33333333333333337
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3333,
+      "BUY": 0.6667,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-08T17:49:09.998813",
+    "ticker": "^NSEI",
+    "current_price": 24010.599609375,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.6666666666666667,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.1%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.33333333333333337
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.33333333333333337
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.3333,
+      "BUY": 0.6667,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.6002148985862732,
+      0.8807126879692078,
+      0.37434178590774536,
+      0.381897509098053,
+      0.043074823915958405,
+      -0.6172036528587341,
+      -0.6310206055641174,
+      -0.6934150457382202,
+      -0.6279000043869019,
+      -0.5619716048240662,
+      -0.5954015254974365,
+      -0.6868528723716736,
+      0.0
+    ],
+    "n_bars": 4310
+  },
+  {
+    "timestamp": "2026-04-13T00:02:30.860361",
+    "ticker": "^NSEI",
+    "current_price": 24051.80078125,
+    "final_action": 0,
+    "action_name": "HOLD",
+    "confidence": 0.75,
+    "sentiment_score": 0.0,
+    "risk_signal": "POSITION_CAP",
+    "risk_reason": "Position limit exceeded: 240.5%",
+    "agent_votes": {
+      "ppo": {
+        "action_name": "BUY",
+        "weight": 0.25
+      },
+      "a2c": {
+        "action_name": "BUY",
+        "weight": 0.25
+      },
+      "dqn": {
+        "action_name": "HOLD",
+        "weight": 0.25
+      },
+      "ddqn": {
+        "action_name": "BUY",
+        "weight": 0.25
+      }
+    },
+    "vote_scores": {
+      "HOLD": 0.25,
+      "BUY": 0.75,
+      "SELL": 0.0
+    },
+    "obs": [
+      -0.5117731690406799,
+      0.9719488024711609,
+      0.397933691740036,
+      0.24131515622138977,
+      0.5923362970352173,
+      -0.5326336622238159,
+      -0.5477073788642883,
+      -0.5796671509742737,
+      -0.548785388469696,
+      -0.5160843729972839,
+      -0.2134270817041397,
+      -0.5752190947532654,
+      0.0
+    ],
+    "n_bars": 4310
+  }
+]

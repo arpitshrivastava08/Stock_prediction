@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "ticker": "^NSEI",
+  "retrained_at": "2026-04-08T17:38:24.931380",
+  "agents_trained": [
+    "ppo",
+    "dqn",
+    "a2c"
+  ],
+  "training_results": {
+    "ppo": {
+      "status": "success",
+      "elapsed_sec": 25.0
+    },
+    "dqn": {
+      "status": "success",
+      "elapsed_sec": 19.0
+    },
+    "ddqn": {
+      "status": "failed",
+      "error": "'int' object has no attribute 'state'"
+    },
+    "a2c": {
+      "status": "success",
+      "elapsed_sec": 25.9
+    }
+  },
+  "backtest_metrics": {
+    "ppo": {
+      "total_return": 0.0,
+      "sharpe_ratio": -3671020.5930133024,
+      "max_drawdown": 0.0
+    },
+    "dqn": {
+      "total_return": 0.0,
+      "sharpe_ratio": -3671020.5930133024,
+      "max_drawdown": 0.0
+    },
+    "a2c": {
+      "total_return": 0.0,
+      "sharpe_ratio": -3671020.5930133024,
+      "max_drawdown": 0.0
+    }
+  },
+  "elapsed_sec": 83.3,
+  "new_bar_count": 29640,
+  "window_used": 1600
+}
